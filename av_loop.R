@@ -26,6 +26,15 @@ dados_videos <- "https://drive.google.com/drive/u/2/folders/1Z06rVpeWAG6fyq8LNJX
   googledrive::drive_ls()
 
 dados_videos |> 
-  dplyr::filter() |>
-  dplyr::rowwise() |> 
-  dplyr::mutate(link = )
+  dplyr::rowwise() |>
+  dplyr::mutate(
+    data = purrr::pluck(drive_resource, "modifiedTime"),
+    link = purrr::pluck(drive_resource, "webViewLink")
+  ) |> 
+  dplyr::ungroup() |> 
+  dplyr::arrange(dplyr::desc(data)) |> 
+  dplyr::mutate(data = as.Date(lubridate::ymd_hms(data))) |> 
+  dplyr::filter(data == Sys.Date()) |> 
+  dplyr::transmute(name, tipo = "dica", link) |> 
+  writexl::write_xlsx("C://Users/julio/Downloads/videos.xlsx")
+  
