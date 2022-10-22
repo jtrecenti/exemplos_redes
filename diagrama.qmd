@@ -1,0 +1,18 @@
+---
+title: "Diagrama"
+author: "Eu"
+date: "Hoje"
+format: html
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+```{mermaid}
+flowchart LR
+  A[Retangulo] --> B(Arredondado)
+  B --> C{Decisao}
+  C --> D[Ret um]
+  C --> E[Ret dois]
+```
