@@ -1,0 +1,30 @@
+---
+title: "gptstudio"
+format: html
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+
+# remotes::install_github("MichelNivard/gptstudio")
+
+# load ggplot2 library
+library(ggplot2)
+
+# pipe mtcars data set into dplyr::mutate function, which will create a new column called mpg, which is the square of the mpg column
+mtcars |>
+  dplyr::mutate(mpg = mpg ^ 2)
+
+# create a scatter plot of mpg vs disp, using the mtcars data set
+ggplot(mtcars, aes(disp, mpg)) + 
+  geom_point()
+
+```
+
