@@ -1,0 +1,17 @@
+---
+title: "R e python"
+format:
+  html: default
+  docx: default
+---
+
+```{r}
+library(reticulate)
+x <- 1+1
+py$y
+```
+
+```{python}
+y = 2+2
+print(r.x + y)
+```

@@ -1,0 +1,14 @@
+---
+title: "Múltiplos formatos!"
+format:
+  html: default
+  docx: default
+---
+
+```{r}
+x <- 1+1
+```
+
+```{python}
+y = 2+2
+```
