@@ -1,0 +1,29 @@
+---
+title: "shinylive_quarto"
+format: html
+filters:
+  - shinylive
+---
+
+## Exemplo shinylive python com Quarto!
+
+
+```{shinylive-python}
+#| standalone: true
+
+from shiny import *
+
+app_ui = ui.page_fluid(
+    ui.input_slider("n", "N", 0, 100, 40),
+    ui.output_text_verbatim("txt"),
+)
+
+def server(input, output, session):
+    @output
+    @render.text
+    def txt():
+        return f"O resultado de n*2 é {input.n() * 2}"
+
+app = App(app_ui, server)
+
+```
